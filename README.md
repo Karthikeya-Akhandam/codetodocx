@@ -1,6 +1,6 @@
-# CodeTodox
+# codetodocx
 
-A smart Go package that exports your code to Microsoft Word documents. CodeTodox automatically detects if you're in a git repository and exports only changed files, or exports the entire project if it's not a git repository.
+A smart Go package that exports your code to Microsoft Word documents. codetodocx automatically detects if you're in a git repository and exports only changed files, or exports the entire project if it's not a git repository.
 
 ## Features
 
@@ -14,7 +14,7 @@ A smart Go package that exports your code to Microsoft Word documents. CodeTodox
 ## Installation
 
 ```bash
-go get github.com/Karthikeya-Akhandam/codetodox
+go get github.com/Karthikeya-Akhandam/codetodocx
 ```
 
 ## Usage
@@ -26,12 +26,12 @@ package main
 
 import (
     "fmt"
-    "github.com/Karthikeya-Akhandam/codetodox"
+    "github.com/Karthikeya-Akhandam/codetodocx"
 )
 
 func main() {
     // One function call - automatically does the smart thing!
-    err := codetodox.ExportProject("./myproject", "mycode.docx")
+    err := codetodocx.ExportProject("./myproject", "mycode.docx")
     if err != nil {
         fmt.Println("Error:", err)
     }
@@ -59,7 +59,7 @@ The `ExportProject()` function is intelligent and automatically:
 
 ## Git Integration
 
-CodeTodox automatically detects git repositories and exports files with the following status:
+codetodocx automatically detects git repositories and exports files with the following status:
 
 - **M** - Modified files
 - **A** - Added files  
@@ -112,4 +112,4 @@ Created by [Karthikeya Akhandam](https://github.com/Karthikeya-Akhandam)
 
 ---
 
-**CodeTodox** - Smart code export to Word documents! 📄✨
+**codetodocx** - Smart code export to Word documents! 📄✨

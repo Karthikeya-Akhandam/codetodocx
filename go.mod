@@ -1,4 +1,4 @@
-module github.com/Karthikeya-Akhandam/codetodox
+module github.com/Karthikeya-Akhandam/codetodocx
 
 go 1.24.4
 

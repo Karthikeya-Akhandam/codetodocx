@@ -1,4 +1,4 @@
-package codetodox
+package codetodocx
 
 import (
 	"bufio"
@@ -115,7 +115,7 @@ func getGitChangedFiles(projectFolder string) (map[string]bool, error) {
 
 // ExportProject exports the project to a Word document
 // Automatically detects if it's a git repo and exports only changed files, otherwise exports entire project
-// Usage: codetodox.ExportProject("path/to/project", "output.docx")
+// Usage: codetodocx.ExportProject("path/to/project", "output.docx")
 func ExportProject(projectFolder, outputDocx string) error {
 	var doc *document.Document
 	var isGitRepo bool

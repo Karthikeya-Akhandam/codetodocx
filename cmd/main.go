@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/Karthikeya-Akhandam/codetodox"
+	"github.com/Karthikeya-Akhandam/codetodocx"
 )
 
 func main() {
@@ -11,7 +11,7 @@ func main() {
 	outputDocxPath := "kisanlink_erp_code_export.docx" // Output file
 
 	fmt.Println("Exporting project...")
-	err := codetodox.ExportProject(projectFolderPath, outputDocxPath)
+	err := codetodocx.ExportProject(projectFolderPath, outputDocxPath)
 	if err != nil {
 		fmt.Println("Error exporting project:", err)
 	} else {
