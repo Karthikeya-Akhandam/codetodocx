@@ -4,12 +4,13 @@ A smart Go package that exports your code to Microsoft Word documents. codetodoc
 
 ## Features
 
-- 🚀 **Smart Detection**: Automatically detects git repositories and exports only changed files
+- 🚀 **Smart Detection**: First-time export includes all tracked files, incremental exports only changed files
 - 📝 **Word Document Export**: Creates professional Word documents with your code
-- 🔄 **Incremental Updates**: Appends to existing documents instead of overwriting
+- 🔢 **Line Numbers**: Automatically adds line numbers to all code
 - 🎯 **Git Integration**: Exports files with git status M (modified), A (added), or U (untracked)
 - 📁 **File Filtering**: Automatically skips binary files and detects text files
-- 💪 **Bold Headings**: File names appear as bold headings in the document
+- 💪 **Improved Formatting**: Bold headings with full file paths, horizontal separators between files
+- ⚙️ **Flexible Options**: Command-line flags for full or changed-only exports
 
 ## Installation
 
@@ -42,20 +43,21 @@ func main() {
 
 The `ExportProject()` function is intelligent and automatically:
 
-1. **Git Repository**: Exports only changed files (M/A/U status)
-2. **Regular Folder**: Exports entire project
-3. **Existing Document**: Appends to existing Word document
-4. **New Document**: Creates fresh Word document
+1. **First-Time Git Export**: Exports ALL git-tracked files
+2. **Incremental Git Export**: Exports only changed files (M/A/U status)
+3. **Regular Folder**: Exports entire project
+4. **Document Creation**: Always creates a fresh Word document (overwrites if exists)
 
 ### Example Output
 
-**For Git Repositories:**
-- Document Title: "Code Export - Changed Files from [project]"
-- Updates: "--- Updated Export (Changed Files Only) ---"
+**For Git Repositories (First Time):**
+- Document Title: "Code Export from [project] (All Tracked Files - First Export)"
+
+**For Git Repositories (Incremental):**
+- Document Title: "Code Export from [project] (Changed Files Only - Incremental)"
 
 **For Regular Folders:**
-- Document Title: "Code Export from [project]"
-- Updates: "--- Updated Export ---"
+- Document Title: "Code Export from [project] (Full Export)"
 
 ## Git Integration
 
@@ -76,16 +78,28 @@ The package automatically:
 - ❌ Skips directories
 - ❌ Skips files with null bytes (binary detection)
 
-## CLI Example
+## CLI Usage
 
-You can also use it as a command-line tool:
+Build and use as a command-line tool:
 
 ```bash
 # Build the CLI
-go build ./cmd
+go build -o codetodocx ./cmd
 
-# Run it
-./cmd
+# First-time export (exports all tracked files in git repo)
+./codetodocx -project ./myproject -output mycode.docx
+
+# Incremental export (exports only changed files)
+./codetodocx -project ./myproject -output mycode.docx
+
+# Force full export (export all files even on subsequent runs)
+./codetodocx -project ./myproject -output mycode.docx -full
+
+# Force changed-only export (export only changed files even on first run)
+./codetodocx -project ./myproject -output mycode.docx -changed-only
+
+# Show help
+./codetodocx -help
 ```
 
 ## Requirements
@@ -96,7 +110,7 @@ go build ./cmd
 
 ## Dependencies
 
-- `github.com/unidoc/unioffice` - For Word document generation
+- `github.com/fumiama/go-docx` - Open-source library for Word document generation (AGPL-3.0)
 
 ## License
 
