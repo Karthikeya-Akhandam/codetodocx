@@ -5,16 +5,41 @@
 [![GitHub release](https://img.shields.io/github/release/Karthikeya-Akhandam/codetodocx.svg)](https://github.com/Karthikeya-Akhandam/codetodocx/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A smart Go package that **exports your code to Microsoft Word documents**. Perfect for code reviews, documentation, client deliverables, and educational materials. codetodocx automatically detects git repositories and intelligently exports either all tracked files (first-time) or only changed files (incremental updates).
+**Get AI code reviews from ChatGPT without expensive subscriptions!**
+
+Export your entire codebase to a single Word document and upload it to ChatGPT for instant code reviews, bug detection, and suggestions. No more manual copy-pasting multiple files or paying for Cursor/Claude Code subscriptions.
 
 ## Why codetodocx?
 
-Export your source code to professional Word documents with intelligent git integration. Unlike manual copy-paste or basic export tools, codetodocx:
+### 🤖 The Problem
 
-- **Knows what's changed**: First export includes everything, subsequent exports only modified files
-- **Formats beautifully**: Line numbers, syntax-friendly formatting, clear file separators
-- **Works everywhere**: Git repos or regular folders, any text-based codebase
-- **Zero configuration**: Just point it at your project folder
+You want AI code reviews, but:
+- ❌ Claude Code, Cursor, and GitHub Copilot cost $20-40/month
+- ❌ Manually copying/pasting code to ChatGPT is tedious and time-consuming
+- ❌ Multiple prompts waste tokens and lose context
+- ❌ Free ChatGPT can't access your codebase directly
+
+### ✅ The Solution
+
+**One command. One file. Complete code review.**
+
+```bash
+codetodocx -project . -output my_code.docx
+```
+
+Upload `my_code.docx` to ChatGPT and ask:
+- "Review this code for bugs and suggest improvements"
+- "Find security vulnerabilities in this codebase"
+- "Explain how this project works"
+- "Suggest refactoring opportunities"
+
+### 💰 Why This Matters
+
+**For Small Developers & Students:**
+- ✅ **Free**: Use ChatGPT free tier instead of $20/month AI subscriptions
+- ✅ **Fast**: One upload vs. dozens of copy-pastes
+- ✅ **Smart**: Automatically exports only changed files on updates
+- ✅ **Organized**: Line numbers, file paths, clean formatting
 
 ## Features
 
@@ -28,12 +53,21 @@ Export your source code to professional Word documents with intelligent git inte
 
 ## Use Cases
 
-- 📋 **Code Reviews**: Share formatted code with reviewers who prefer Word
+### Primary Use Case: ChatGPT Code Reviews
+
+1. 🤖 **Get AI Code Reviews** - Upload one Word doc to ChatGPT instead of expensive AI coding subscriptions
+2. 💰 **Save Money** - Free alternative to Cursor ($20/mo), Claude Code ($20/mo), GitHub Copilot ($10-40/mo)
+3. ⚡ **Save Time** - Export entire project in seconds vs. manual copy-paste of every file
+4. 📊 **Token Efficient** - One organized document preserves context better than scattered prompts
+5. 🔄 **Incremental Updates** - Export only changed files for quick re-reviews
+
+### Other Use Cases
+
+- 📋 **Code Reviews**: Share formatted code with human reviewers
 - 📚 **Documentation**: Create technical documentation with actual source code
 - 🎓 **Education**: Prepare teaching materials with properly formatted code examples
-- 💼 **Client Deliverables**: Professional code submissions for clients and stakeholders
-- 🗂️ **Archiving**: Snapshot your codebase at specific points in time
-- 📊 **Portfolio**: Present your projects in a readable, professional format
+- 💼 **Client Deliverables**: Professional code submissions for clients
+- 📊 **Portfolio**: Present your projects in a readable format
 
 ## Installation
 
@@ -49,9 +83,63 @@ go get github.com/Karthikeya-Akhandam/codetodocx@latest
 
 For more information, visit [pkg.go.dev](https://pkg.go.dev/github.com/Karthikeya-Akhandam/codetodocx).
 
+## Quick Start: ChatGPT Code Review in 3 Steps
+
+### Step 1: Export Your Code
+
+```bash
+# Build the CLI
+go build -o codetodocx ./cmd
+
+# Export your project
+./codetodocx -project . -output my_code.docx
+```
+
+### Step 2: Upload to ChatGPT
+
+1. Go to [ChatGPT](https://chat.openai.com)
+2. Click the attachment icon (📎)
+3. Upload `my_code.docx`
+
+### Step 3: Ask for Review
+
+**Example Prompts:**
+
+```
+Review this code and suggest improvements
+```
+
+```
+Find potential bugs and security vulnerabilities in this codebase
+```
+
+```
+Explain the architecture and how the components interact
+```
+
+```
+Suggest refactoring opportunities to improve code quality
+```
+
+```
+Check for performance issues and optimization opportunities
+```
+
+### Step 4 (Optional): Update After Changes
+
+```bash
+# Export only changed files (faster, smaller file)
+./codetodocx -project . -output my_code.docx
+
+# Upload the updated file to ChatGPT
+# Ask: "Review the changes I made"
+```
+
+---
+
 ## Usage
 
-### Basic Usage
+### Basic Usage (Programmatic)
 
 ```go
 package main
