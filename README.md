@@ -1,6 +1,20 @@
 # codetodocx
 
-A smart Go package that exports your code to Microsoft Word documents. codetodocx automatically detects if you're in a git repository and exports only changed files, or exports the entire project if it's not a git repository.
+[![Go Reference](https://pkg.go.dev/badge/github.com/Karthikeya-Akhandam/codetodocx.svg)](https://pkg.go.dev/github.com/Karthikeya-Akhandam/codetodocx)
+[![Go Report Card](https://goreportcard.com/badge/github.com/Karthikeya-Akhandam/codetodocx)](https://goreportcard.com/report/github.com/Karthikeya-Akhandam/codetodocx)
+[![GitHub release](https://img.shields.io/github/release/Karthikeya-Akhandam/codetodocx.svg)](https://github.com/Karthikeya-Akhandam/codetodocx/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A smart Go package that **exports your code to Microsoft Word documents**. Perfect for code reviews, documentation, client deliverables, and educational materials. codetodocx automatically detects git repositories and intelligently exports either all tracked files (first-time) or only changed files (incremental updates).
+
+## Why codetodocx?
+
+Export your source code to professional Word documents with intelligent git integration. Unlike manual copy-paste or basic export tools, codetodocx:
+
+- **Knows what's changed**: First export includes everything, subsequent exports only modified files
+- **Formats beautifully**: Line numbers, syntax-friendly formatting, clear file separators
+- **Works everywhere**: Git repos or regular folders, any text-based codebase
+- **Zero configuration**: Just point it at your project folder
 
 ## Features
 
@@ -12,11 +26,28 @@ A smart Go package that exports your code to Microsoft Word documents. codetodoc
 - 💪 **Improved Formatting**: Bold headings with full file paths, horizontal separators between files
 - ⚙️ **Flexible Options**: Command-line flags for full or changed-only exports
 
+## Use Cases
+
+- 📋 **Code Reviews**: Share formatted code with reviewers who prefer Word
+- 📚 **Documentation**: Create technical documentation with actual source code
+- 🎓 **Education**: Prepare teaching materials with properly formatted code examples
+- 💼 **Client Deliverables**: Professional code submissions for clients and stakeholders
+- 🗂️ **Archiving**: Snapshot your codebase at specific points in time
+- 📊 **Portfolio**: Present your projects in a readable, professional format
+
 ## Installation
 
 ```bash
 go get github.com/Karthikeya-Akhandam/codetodocx
 ```
+
+Or install the latest version:
+
+```bash
+go get github.com/Karthikeya-Akhandam/codetodocx@latest
+```
+
+For more information, visit [pkg.go.dev](https://pkg.go.dev/github.com/Karthikeya-Akhandam/codetodocx).
 
 ## Usage
 
@@ -104,7 +135,7 @@ go build -o codetodocx ./cmd
 
 ## Requirements
 
-- Go 1.24.4 or later
+- Go 1.24 or later
 - Git (optional, for git integration)
 - Microsoft Word or compatible software to view the output
 
